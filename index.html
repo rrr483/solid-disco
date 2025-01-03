@@ -110,26 +110,63 @@
         <p>在校学生，热爱新技术。</p>
         <p>玩的游戏：王者荣耀，和平精英</p>
         <p>爱好：出去摄影，旅游</p>
-    </div>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Simple Avatar</title>
+<title>Smiley Face</title>
 <style>
-  .avatar {
-    width: 50px; /* 设置头像宽度 */
-    height: 50px; /* 设置头像高度 */
-    border-radius: 50%; /* 设置圆形头像 */
+  .smiley-face {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .smiley-face:before,
+  .smiley-face:after {
+    content: '';
+    position: absolute;
+    height: 50%;
+    width: 10%;
+    background-color: black;
+    border-radius: 50%;
+  }
+
+  .smiley-face:before {
+    left: 40%;
+  }
+
+  .smiley-face:after {
+    right: 40%;
+  }
+
+  .mouth {
+    width: 60%;
+    height: 60%;
+    background-color: black;
+    border-radius: 50%;
+    transform: rotate(90deg);
+    top: 10%;
+    left: 20%;
+    position: absolute;
   }
 </style>
 </head>
 <body>
 
-<!-- 头像图片 -->
-<img src="path/to/your/avatar.jpg" alt="Avatar" class="avatar">
+<div class="smiley-face">
+  <div class="mouth"></div>
+</div>
 
 </body>
+</html>
+
+    </div>
 
 </body>
     <div class="content container">
