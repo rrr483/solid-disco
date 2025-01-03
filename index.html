@@ -185,7 +185,92 @@
         </article>
         <!-- 更多文章 -->
     </div>
-    
+    <html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Emoji</title>
+<style>
+  .emoji {
+    width: 100px;
+    height: 100px;
+    background-color: #ffdd67;
+    border-radius: 50%;
+    position: relative;
+    margin: 20px;
+    display: inline-block;
+  }
+
+  .eyes {
+    position: absolute;
+    top: 40%;
+    width: 30%;
+    height: 20%;
+    background-color: #fff;
+    border-radius: 50%;
+  }
+
+  .eye-left {
+    left: 20%;
+  }
+
+  .eye-right {
+    right: 20%;
+  }
+
+  .mouth {
+    position: absolute;
+    bottom: 35%;
+    left: 25%;
+    width: 50%;
+    height: 10%;
+    background-color: #333;
+    border-radius: 50%;
+  }
+</style>
+</head>
+<body>
+
+<div class="emoji" id="emoji">
+  <div class="eyes eye-left"></div>
+  <div class="eyes eye-right"></div>
+  <div class="mouth"></div>
+</div>
+
+<button onclick="changeEmoji('smile')">Smile</button>
+<button onclick="changeEmoji('sad')">Sad</button>
+<button onclick="changeEmoji('tongue')">Tongue</button>
+
+<script>
+function changeEmoji(expression) {
+  const emoji = document.getElementById('emoji');
+  const mouth = emoji.querySelector('.mouth');
+
+  switch (expression) {
+    case 'smile':
+      mouth.style.backgroundColor = '#1c9e3e'; // Green for a happy smile
+      mouth.style.borderRadius = '15px'; // Sharper corners for a smile
+      break;
+    case 'sad':
+      mouth.style.backgroundColor = '#333'; // Grey for a sad mouth
+      mouth.style.borderRadius = '50%'; // Rounder for a sad frown
+      break;
+    case 'tongue':
+      mouth.style.width = '70%'; // Wider for a tongue sticking out
+      mouth.style.height = '20%'; // Taller for a tongue
+      mouth.style.backgroundColor = '#ff4e50'; // Red for the tongue
+      mouth.style.borderRadius = '50%'; // Rounder for a tongue shape
+      mouth.style.left = '15%'; // Center the tongue
+      break;
+    default:
+      break;
+  }
+}
+</script>
+
+</body>
+</html>
+
     <footer>
         <div class="container">
             <p>版权所有 &copy; 2025 我的博客</p>
