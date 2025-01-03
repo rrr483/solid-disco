@@ -110,64 +110,150 @@
         <p>在校学生，热爱新技术。</p>
         <p>玩的游戏：王者荣耀，和平精英</p>
         <p>爱好：出去摄影，旅游</p>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Smiley Face</title>
+<title>Stylish Dynamic Emoji</title>
 <style>
-  .smiley-face {
-    width: 100px;
-    height: 100px;
-    background-color: yellow;
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7f7f7;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  .emoji-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .emoji {
+    width: 150px;
+    height: 150px;
+    background-color: #ffdd67;
     border-radius: 50%;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-bottom: 20px;
   }
 
-  .smiley-face:before,
-  .smiley-face:after {
-    content: '';
+  .eyes {
     position: absolute;
-    height: 50%;
-    width: 10%;
-    background-color: black;
+    top: 40%;
+    width: 30%;
+    height: 20%;
+    background-color: #fff;
     border-radius: 50%;
   }
 
-  .smiley-face:before {
-    left: 40%;
+  .eye-left {
+    left: 20%;
   }
 
-  .smiley-face:after {
-    right: 40%;
+  .eye-right {
+    right: 20%;
   }
 
   .mouth {
-    width: 60%;
-    height: 60%;
-    background-color: black;
-    border-radius: 50%;
-    transform: rotate(90deg);
-    top: 10%;
-    left: 20%;
     position: absolute;
+    bottom: 35%;
+    left: 25%;
+    width: 50%;
+    height: 10%;
+    background-color: #333;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+
+  button {
+    margin: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #1c9e3e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #167734;
+  }
+
+  @keyframes blink {
+    0%, 100% {
+      transform: scaleY(1);
+    }
+    50% {
+      transform: scaleY(0.1);
+    }
+  }
+
+  .blinking-eyes .eyes {
+    animation: blink 1s infinite;
   }
 </style>
 </head>
 <body>
 
-<div class="smiley-face">
-  <div class="mouth"></div>
+<div class="emoji-container">
+  <div class="emoji" id="emoji">
+    <div class="eyes eye-left"></div>
+    <div class="eyes eye-right"></div>
+    <div class="mouth"></div>
+  </div>
+  <button onclick="changeEmoji('smile')">Smile</button>
+  <button onclick="changeEmoji('sad')">Sad</button>
+  <button onclick="changeEmoji('tongue')">Tongue</button>
+  <button onclick="changeEmoji('blushing')">Blushing</button>
+  <button onclick="changeEmoji('blinking')">Blinking</button>
 </div>
 
+<script>
+function changeEmoji(expression) {
+  const emoji = document.getElementById('emoji');
+  const mouth = emoji.querySelector('.mouth');
+  const eyes = emoji.querySelectorAll('.eyes');
+
+  switch (expression) {
+    case 'smile':
+      mouth.style.backgroundColor = '#1c9e3e'; // Green for a happy smile
+      mouth.style.borderRadius = '15px'; // Sharper corners for a smile
+      break;
+    case 'sad':
+      mouth.style.backgroundColor = '#333'; // Grey for a sad mouth
+      mouth.style.borderRadius = '50%'; // Rounder for a sad frown
+      break;
+    case 'tongue':
+      mouth.style.width = '70%'; // Wider for a tongue sticking out
+      mouth.style.height = '20%'; // Taller for a tongue
+      mouth.style.backgroundColor = '#ff4e50'; // Red for the tongue
+      mouth.style.borderRadius = '50%'; // Rounder for a tongue shape
+      mouth.style.left = '15%'; // Center the tongue
+      break;
+    case 'blushing':
+      mouth.style.backgroundColor = '#ff4e50'; // Red for blushing
+      mouth.style.borderRadius = '20px'; // Rounder for a blush
+      mouth.style.width = '40%'; // Smaller for a blush
+      mouth.style.left = '30%'; // Center the blush
+      break;
+    case 'blinking':
+      emoji.classList.add('blinking-eyes');
+      setTimeout(() => emoji.classList.remove('blinking-eyes'), 1000);
+      break;
+    default:
+      break;
+  }
+}
+</script>
+
 </body>
-</html>
-
-    </div>
-
 
     
 </body>
